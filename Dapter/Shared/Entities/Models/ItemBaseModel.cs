@@ -2,8 +2,10 @@
 {
     public abstract class ItemBaseModel
     {
-        public virtual int Id { get; protected set; }
-        public virtual string Name { get; protected set; } = string.Empty;
-        public virtual string? Description { get; protected set;}
+        public virtual int Id { get; set; }
+        public virtual string Name { get; set; } = string.Empty;
+        public virtual string? Description { get; set;}
+
+        //TODO: Добавить к моделям XML комментарии.
     }
 }

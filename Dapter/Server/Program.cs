@@ -1,4 +1,5 @@
-using Microsoft.AspNetCore.ResponseCompression;
+using Dapter.Shared;
+using Microsoft.EntityFrameworkCore;
 
 namespace Dapter
 {
@@ -9,6 +10,10 @@ namespace Dapter
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
+
+            builder.Services.AddDbContext<DapterContext>(options =>
+                options.UseNpgsql(builder.Configuration.GetConnectionString("Default"))
+            );
 
             builder.Services.AddControllersWithViews();
             builder.Services.AddRazorPages();
