@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dapter.Client", "Dapter\Cli
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dapter.Shared", "Dapter\Shared\Dapter.Shared.csproj", "{7A5A036A-2C4F-410A-9542-DF1EA3614966}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{52E30E42-ED74-4E26-8DF5-0BBEB627C4E6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,6 +32,11 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{12C70210-FBDD-4B46-83E6-2B263E03DAC7} = {52E30E42-ED74-4E26-8DF5-0BBEB627C4E6}
+		{D5AFC786-6A47-4298-B021-2DEBB5510FC4} = {52E30E42-ED74-4E26-8DF5-0BBEB627C4E6}
+		{7A5A036A-2C4F-410A-9542-DF1EA3614966} = {52E30E42-ED74-4E26-8DF5-0BBEB627C4E6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6C3BBBD0-090C-4DBC-85AD-722005997D9B}
