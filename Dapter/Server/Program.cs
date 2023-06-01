@@ -1,8 +1,10 @@
+using Dapter.Server.Services.BookService;
 using Dapter.Shared;
 using Microsoft.EntityFrameworkCore;
 
 namespace Dapter
 {
+    //TODO: использовать глобальный using
     public class Program
     {
         public static void Main(string[] args)
@@ -17,8 +19,14 @@ namespace Dapter
 
             builder.Services.AddControllersWithViews();
             builder.Services.AddRazorPages();
+            builder.Services.AddEndpointsApiExplorer();
+            builder.Services.AddSwaggerGen();
+
+            builder.Services.AddScoped<IBooksService, BooksService>();
 
             var app = builder.Build();
+
+            app.UseSwaggerUI();
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
@@ -32,6 +40,7 @@ namespace Dapter
                 app.UseHsts();
             }
 
+            app.UseSwagger();
             app.UseHttpsRedirection();
 
             app.UseBlazorFrameworkFiles();
