@@ -12,6 +12,8 @@ namespace Dapter.Server.Services.BookService
         {
             _dataContext = dataContext;
         }
+
+        #region GET методы
         /// <summary>
         /// Метод возвращает список всех книг.
         /// The method returns a list of all books.
@@ -20,7 +22,7 @@ namespace Dapter.Server.Services.BookService
         public async Task<ServiceResponse<List<Book>>> GetAllBooksAsync()
         {
             var books = await _dataContext.Books.ToListAsync();
-            if(books is not null)
+            if (books is not null)
             {
                 return new ServiceResponse<List<Book>>
                 {
@@ -35,8 +37,23 @@ namespace Dapter.Server.Services.BookService
                     Data = null,
                     Success = false,
                     Message = "Список книг пуст =("
-                };  
+                };
             }
         }
+        #endregion
+
+        #region POST методы
+        public async Task<ServiceResponse<List<Book>>> AddNewBookAsync(Book book)
+        {
+            await _dataContext.Books.AddAsync(book);
+            await _dataContext.SaveChangesAsync();
+            var books = await _dataContext.Books.ToListAsync();
+            return new ServiceResponse<List<Book>>()
+            {
+                Data = books,
+                Success = true
+            };
+        }
+        #endregion
     }
 }
