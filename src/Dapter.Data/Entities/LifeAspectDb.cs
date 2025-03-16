@@ -1,8 +1,8 @@
 ﻿namespace Dapter.Data.Entities;
 
-class LifeAspectDb
+public class LifeAspectDb
 {
     public Guid Id { get; set; }
-    public string Name { get; set; } = "DefaultName";
+    public string Name { get; set; } = "Default";
     public string? Description { get; set; }
 }
