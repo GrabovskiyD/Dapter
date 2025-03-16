@@ -1,6 +1,6 @@
 ﻿namespace Dapter.Core.Models;
 
-public class LifeAspect
+public class LifeAspectCore
 {
     public Guid Id { get; set; }
     public string? Name { get; set; }

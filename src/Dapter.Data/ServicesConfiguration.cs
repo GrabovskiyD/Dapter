@@ -13,7 +13,7 @@ public static class ServicesConfiguration
 
         services.AddDbContext<DapterDbContext>(builder =>
         {
-            builder.UseSqlite(dbPath, options =>
+            builder.UseSqlite($"Filename={dbPath}", options =>
             {
                 options.MigrationsAssembly(typeof(DapterDbContext).Assembly.FullName);
                 options.MigrationsHistoryTable(DapterDbContext.MigrationsHistoryTableName);

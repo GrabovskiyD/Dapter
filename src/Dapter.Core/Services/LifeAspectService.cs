@@ -7,17 +7,17 @@ namespace Dapter.Core.Services;
 public class LifeAspectService(
     ILifeAspectRepository lifeAspectRepository) : ILifeAspectService
 {
-    public Task Add(LifeAspect lifeAspect) =>
+    public Task Add(LifeAspectCore lifeAspect) =>
         lifeAspectRepository.Add(lifeAspect);
 
-    public async Task<Result<LifeAspect>> Get(Guid id) =>
-        new Result<LifeAspect>
+    public async Task<Result<LifeAspectCore>> Get(Guid id) =>
+        new Result<LifeAspectCore>
         {
             Value = await lifeAspectRepository.Get(id)
         };
 
-    public async Task<Result<List<LifeAspect>>> GetAll() =>
-        new Result<List<LifeAspect>> 
+    public async Task<Result<List<LifeAspectCore>>> GetAll() =>
+        new Result<List<LifeAspectCore>> 
         { 
             Value = await lifeAspectRepository.GetAll()
         };
@@ -25,6 +25,6 @@ public class LifeAspectService(
     public Task Remove(Guid id) =>
         lifeAspectRepository.Remove(id);
 
-    public Task Update(LifeAspect lifeAspect) =>
+    public Task Update(LifeAspectCore lifeAspect) =>
         lifeAspectRepository.Update(lifeAspect);
 }

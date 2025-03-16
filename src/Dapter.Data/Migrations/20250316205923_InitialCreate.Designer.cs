@@ -11,14 +11,16 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Dapter.Data.Migrations
 {
     [DbContext(typeof(DapterDbContext))]
-    [Migration("20250316164329_InitialCreate")]
+    [Migration("20250316205923_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "9.0.3");
+            modelBuilder
+                .HasDefaultSchema("dapter")
+                .HasAnnotation("ProductVersion", "9.0.3");
 
             modelBuilder.Entity("Dapter.Data.Entities.LifeAspectDb", b =>
                 {
@@ -35,7 +37,7 @@ namespace Dapter.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("LifeAspects");
+                    b.ToTable("LifeAspects", "dapter");
                 });
 #pragma warning restore 612, 618
         }

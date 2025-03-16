@@ -8,7 +8,7 @@ internal class DataMappingProfile : Profile
 {
     public DataMappingProfile()
     {
-        CreateMap<LifeAspect, LifeAspectDb>()
+        CreateMap<LifeAspectCore, LifeAspectDb>()
             .ReverseMap();
     }
 }

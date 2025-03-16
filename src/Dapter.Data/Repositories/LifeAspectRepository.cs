@@ -10,7 +10,7 @@ public class LifeAspectRepository(
     DapterDbContext dbContext,
     IMapper mapper) : ILifeAspectRepository
 {
-    public Task Add(LifeAspect lifeAspect)
+    public Task Add(LifeAspectCore lifeAspect)
     {
         var lifeAspectDb = mapper.Map<LifeAspectDb>(lifeAspect);
 
@@ -18,18 +18,18 @@ public class LifeAspectRepository(
         return dbContext.SaveChangesAsync();
     }
 
-    public async Task<LifeAspect?> Get(Guid id)
+    public async Task<LifeAspectCore?> Get(Guid id)
     {
         var lifeAspectDb = await dbContext
             .LifeAspects
             .FirstOrDefaultAsync(la => la.Id == id);
 
-        return mapper.Map<LifeAspect?>(lifeAspectDb);
+        return mapper.Map<LifeAspectCore?>(lifeAspectDb);
     }
 
-    public async Task<List<LifeAspect>> GetAll()
+    public async Task<List<LifeAspectCore>> GetAll()
     {
-        return mapper.Map<List<LifeAspect>>(
+        return mapper.Map<List<LifeAspectCore>>(
             await dbContext.LifeAspects.ToListAsync());
     }
 
@@ -44,7 +44,7 @@ public class LifeAspectRepository(
         }
     }
 
-    public Task Update(LifeAspect lifeAspect)
+    public Task Update(LifeAspectCore lifeAspect)
     {
         var lifeAspectDb = mapper.Map<LifeAspectDb>(lifeAspect);
 

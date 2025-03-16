@@ -15,7 +15,9 @@ namespace Dapter.Data.Migrations
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "9.0.3");
+            modelBuilder
+                .HasDefaultSchema("dapter")
+                .HasAnnotation("ProductVersion", "9.0.3");
 
             modelBuilder.Entity("Dapter.Data.Entities.LifeAspectDb", b =>
                 {
@@ -32,7 +34,7 @@ namespace Dapter.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("LifeAspects");
+                    b.ToTable("LifeAspects", "dapter");
                 });
 #pragma warning restore 612, 618
         }

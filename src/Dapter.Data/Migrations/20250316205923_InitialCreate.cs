@@ -11,8 +11,12 @@ namespace Dapter.Data.Migrations
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.EnsureSchema(
+                name: "dapter");
+
             migrationBuilder.CreateTable(
                 name: "LifeAspects",
+                schema: "dapter",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "TEXT", nullable: false),
@@ -29,7 +33,8 @@ namespace Dapter.Data.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "LifeAspects");
+                name: "LifeAspects",
+                schema: "dapter");
         }
     }
 }

@@ -6,7 +6,7 @@ namespace Dapter.Core;
 
 public static class ServicesConfiguration
 {
-    public static IServiceCollection RegisterCoreServices(IServiceCollection services)
+    public static IServiceCollection RegisterCoreServices(this IServiceCollection services)
     {
         services.AddScoped<ILifeAspectService, LifeAspectService>();
 
